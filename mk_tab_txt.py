@@ -24,5 +24,5 @@ def check():
 
 
 if __name__ == '__main__':
-    # make_pairs()
+    make_pairs()
     check()

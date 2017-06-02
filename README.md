@@ -31,6 +31,19 @@ output: (出力文)
 * 人名部分は未処理(F/M000といった形式のまま)
 * 同一人物の連続した発話は除外
 
+
+## テキストデータの分割
+
+入力文，出力文のテキストファイルに分割(mecabで形態素解析)．
+
+    nkf -w -X -Z0 sequence.txt | sed -ne '/^input/s/^input: //p' | mecab -Owakati > input.txt
+    nkf -w -X -Z0 sequence.txt | sed -ne '/^output/s/^output: //p' | mecab -Owakati > output.txt
+
+タブではさんだ一つのテキストファイルに変換．
+
+    python mk_tab_txt.py
+
+
 ## ライセンス
 
 The MIT License (MIT)
